@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Poketmon">
+    <insert id="insertPoketmon">
+        insert into poketmon (pnumber, pname, type, spcial, pclass, catch_rate,height,weight,familiar, detail)
+        values (#{pnumber}, ${pname}, ${type}, #{spcial}, #{pclass}, #{catch_rate}, #{height}, #{weight}, #{familiar}, #{detail})
+    </insert>
+    <update id="updatePoketmon">
+        update poketmon set pnumber=#{pnumber}, pname=#{pname}, type=#{type}, spcial=#{spcial}, catch_rate =#{catch_rate}, height=#{height}, weight=#{weight}, familiar =#{familiar}, detail=#{detail} where pid=#{pid}
+<!--        update poketmon-->
+<!--        set pnumber=#{pnumber}, pname=#{pname}, type=#{type}, spcial=#{spcial}, pclass=#{pclass}, catch_rate=#{catch_rate},height=#{height},weight=#{weight},familiar=#{familiar}, detail=#{detail} where pid=#{pid}"-->
+    </update>
+
+    <delete id="deletePoketmon">
+        delete from poketmon where pid=#{pid}
+    </delete>
+
+    <select id="getPoketmon" resultType="poketmon">
+        select * from poketmon where pid = #{pid}
+    </select>
+
+    <select id="getPoketmonList" resultType="poketmon">
+        select * from poketmon order by pid desc
+    </select>
+</mapper>

@@ -8,6 +8,23 @@
     border-collapse: collapse;
     width: 100%;
 }
+.title{
+    background: #006bb3;
+    color: white;
+}
+#post_title{
+    padding: 12px;
+    color: #006bb3;
+}
+
+#post tr td{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #dddddd;
+}
+#post tr{
+    padding-bottom: 12px;
+}
 
 #list td, #list th {
     border: 1px solid #ddd;
