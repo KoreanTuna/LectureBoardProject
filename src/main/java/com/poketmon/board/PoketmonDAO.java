@@ -34,6 +34,10 @@ public class PoketmonDAO {
         List<Object> result =sqlSession.selectList("Poketmon.getPoketmonList");
         return result;
     }
+    public List<Object> getLectureList(){
+        List<Object> result =sqlSession.selectList("Lecture.getLectureList");
+        return result;
+    }
 //    private JdbcTemplate jdbcTemplate;
 //    public void setJdbcTemplate(JdbcTemplate jdbcTemplate){
 //        this.jdbcTemplate = new JdbcTemplate();

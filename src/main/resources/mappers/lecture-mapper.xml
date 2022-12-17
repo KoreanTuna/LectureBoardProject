@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Lecture">
+    <insert id="insertLecture">
+        insert into lecture(name, credit, englishCredit, major, time, professor, semester, pre, detail)
+        values(#{name}, #{credit}, #{englishCredit}, #{major}, #{time}, #{professor}, #{semester}, #{pre}, #{detail})
+    </insert>
+    <update id="updateLecture">
+        update lecture set name=#{name}, credit=#{credit}, englishCredit=#{englishCredit}, major = #{major}, time=#{time}, professor= #{professor}, semester = #{semester}, pre=#{pre}, detail=#{detail} where seq = #{seq}
+    </update>
+    <delete id="deleteLecture">
+        delete from lecture where seq=#{seq}
+    </delete>
+    <select id="getLecture" resultType="lecture">
+        select * from lecture where seq=#{seq}
+    </select>
+    <select id="getLectureList" resultType="lecture">
+        select * from lecture order by seq desc
+    </select>
+</mapper>

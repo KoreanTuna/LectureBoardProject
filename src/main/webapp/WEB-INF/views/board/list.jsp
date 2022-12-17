@@ -7,62 +7,66 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        PoketmonList
+        LectureList
     </title>
     <style>
     </style>
     <link rel="stylesheet" href="${path}/resources/css/style.css">
 </head>
 <body>
-<h1>Poketmon List</h1>
-<a href="javascript:logout()">로그아웃</a>
-<br/><a href="addform">포켓몬 추가하기</a>
+<h1>강의 리스트</h1>
+
+<div style="font-weight: bold; font-size: 18px; display: inline-block; padding-right: 12px">
+    전체학점 :${credit.credit}
+</div>
+<div style="font-weight: bold; font-size: 18px; display: inline-block">
+    전공학점 :${credit.majorCredit}
+</div>
+<div style="font-weight: bold; font-size: 18px; display: inline-block">
+    전공영어학점 :${credit.englishCredit}
+</div><br><br>
+
 <table id="list" width="90%">
     <tr>
-        <th>포켓몬번호</th>
-        <th>이름</th>>
-        <th>타입</th>
-        <th>특성</th>
-        <th>분류</th>
-        <th>포획률</th>
-
-        <th>키</th>
-        <th>몸무게</th>
-        <th>친밀도</th>
-
-        <th>도감정보</th>
+        <td>강의명</td>
+        <td>학점</td>
+        <td>영어학점</td>
+        <td>전공유무</td>
+        <td>강의시간</td>
+        <td>교수명</td>
+        <td>수업학기</td>
+        <td>선수과목</td>
         <th>보기</th>
         <th>수정</th>
         <th>삭제</th>
     </tr>
     <c:forEach items="${list}" var="u">
-        <a href="post/${u.pid}">
+        <a href="post/${u.seq}">
             <tr>
-        <%--        <td><img src="${pageContext.request.contextPath}/upload/${u.photo}" class="photo" alt="no Image"></td>--%>
-            <td>${u.pnumber}</td>
-            <td>${u.pname}</td>
-            <td>${u.type}</td>
-            <td>${u.spcial}</td>
-            <td>${u.pclass}</td>
-            <td>${u.catch_rate}</td>
-            <td>${u.height}</td>
-            <td>${u.weight}</td>
-            <td>${u.familiar}</td>
-            <td>${u.detail}</td>
-                    <td><a href="post/${u.pid}">보기</a></td>
-                    <td><a href="editform/${u.pid}">수정</a></td>
-                    <td><a href="javascript:delete_ok('${u.pid}')">삭제</a></td>
+                <td>${u.name}</td>
+                <td>${u.credit}</td>
+                <td>${u.englishCredit}</td>
+                <td>${u.major}</td>
+                <td>${u.time}</td>
+                <td>${u.professor}</td>
+                <td>${u.semester}</td>
+                <td>${u.pre}</td>
+                    <td><a href="post/${u.seq}">보기</a></td>
+                    <td><a href="editform/${u.seq}">수정</a></td>
+                    <td><a href="javascript:delete_ok('${u.seq}')">삭제</a></td>
         </tr>
         </a>
     </c:forEach>
 </table>
+<a style="display:inline-block; text-decoration:none; padding: 4px 12px; background: red; color: #dddddd; margin-bottom: 20px" href="javascript:logout()">로그아웃</a>
+<a style=" display:inline-block;text-decoration:none; padding: 4px 12px; background: #006bb3; color: #dddddd;margin-bottom: 20px" href="addform">강의 추가하기</a>
 <script>
-    function delete_ok(pid){
+    function delete_ok(seq){
         var a = confirm("정말로 삭제하시겠습니까?");
-        if(a) location.href='deleteok/' + pid;
+        if(a) location.href='deleteok/' + seq;
     }
     function logout(){
-        location.href='logout';
+        location.href='logout/';
     }
 </script>
 </body>

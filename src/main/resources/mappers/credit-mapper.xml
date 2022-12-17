@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Credit">
+    <select id="getMajorCredit" resultType="credit">
+        select truncate(SUM(credit),0) as majorCredit,
+        (select truncate(SUM(credit),0) from lecture) as credit,
+        (select truncate(SUM(englishCredit),0) from lecture where major='전공') as englishCredit
+        from lecture where major='전공'
+    </select>
+</mapper>
+

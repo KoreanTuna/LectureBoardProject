@@ -15,22 +15,25 @@
     <link rel="stylesheet" href="${path}/resources/css/style.css">
 </head>
 <body>
-<%--<c:forEach items="${list}" var="u">--%>
 
 <h1>수정하기</h1>
 <form:form modelAttribute="editform" method="get" action="../editok">
-    <form:hidden path="pid"/>
+    <form:hidden path="seq"/>
     <table id="edit">
-        <tr><td>포켓몬번호</td><td><form:input type="text" path="pnumber"/></td></tr>
-        <tr><td>이름</td><td><form:input type="text" path="pname"/></td></tr>
-        <tr><td>타입</td><td><form:input type="text" path="type"/></td></tr>
-        <tr><td>분류</td><td><form:input type="text" path="pclass"/></td></tr>
-        <tr><td>특성</td><td><form:input type="text" path="spcial"/></td></tr>
-        <tr><td>포획률</td><td><form:input type="number" path="catch_rate"/></td></tr>
-        <tr><td>키</td><td><form:input type="text" path="height"/></td></tr>
-        <tr><td>몸무게</td><td><form:input type="double" path="weight"/></td></tr>
-        <tr><td>친밀도</td><td><form:input  type="number" path="familiar"/></td></tr>
-        <tr><td>도감설명</td><td><form:input type="text" path="detail"/></td></tr>
+        <tr><td>강의명</td><td><form:input type="text" path="name"/></td></tr>
+        <tr><td>학점</td><td><form:input type="number" path="credit"/></td></tr>
+        <tr><td>영어학점</td><td><form:input type="number" path="englishCredit"/></td></tr>
+        <tr><td>전공유무:</td><td><select name="major">
+            <option value="선택" selected>선택</option>
+            <option value="전공">전공</option>
+            <option value="교양">교양</option>
+        </select></td></tr>
+
+        <tr><td>강의시간</td><td><form:input type="number" path="time"/></td></tr>
+        <tr><td>교수명</td><td><form:input type="text" path="professor"/></td></tr>
+        <tr><td>강의학기</td><td><form:input type="number" path="semester"/></td></tr>
+        <tr><td>선수과목</td><td><form:input type="text" path="pre"/></td></tr>
+        <tr><td>강의설명</td><td><form:input  type="textarea" path="detail"/></td></tr>
     </table>
     <input type="submit" value="수정하기">
     <input type="button" value="취소" onclick="history.back()">

@@ -12,20 +12,24 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<h1>포켓몬 추가하기</h1>
+<h1>강의 추가하기</h1>
 <form action="addok" method="get">
     <table>
-        <tr><td>포켓몬번호 : </td><td><input type="text" name="pnumber"></td></tr>
-        <tr><td>이름 : </td><td><input type="text" name="pname"></td></tr>
-        <tr><td>타입 :</td><td><input type="text" name="type"></td></tr>
-        <tr><td>분류 :</td><td><input type="text" name="pclass"></td></tr>
-        <tr><td>특성</td><td><input type="text" name="spcial"></td></tr>
-        <tr><td>포획률 :</td><td><input type="number" step=0.1 name="catch_rate"></td></tr>
-        <tr><td>키 :</td><td><input type="text" name="height"></td></tr>
-        <tr><td>몸무게 :</td><td><input type="number" name="weight"></td></tr>
-        <tr><td>친밀도 :</td><td><input type="number" name="familiar"></td></tr>
-        <tr><td>도감설명 :</td><td><input type="text" name="detail"></td></tr>
+        <tr><td>강의명 : </td><td><input type="text" name="name"></td></tr>
+        <tr><td>학점 : </td><td><input type="number" name="credit"></td></tr>
+        <tr><td>영어학점 :</td><td><input type="number" name="englishCredit"></td></tr>
+        <tr><td>전공유무:</td><td><select name="major">
+            <option value="선택" selected>선택</option>
+            <option value="전공">전공</option>
+            <option value="교양">교양</option>
+        </select></td></tr>
+        <tr><td>강의시간</td><td><input type="number" name="time"></td></tr>
+        <tr><td>교수명 :</td><td><input type="text" name="professor"></td></tr>
+        <tr><td>강의학기 :</td><td><input type="number" name="semester"></td></tr>
+        <tr><td>선수과목 :</td><td><input type="text" name="pre"></td></tr>
+        <tr><td>강의설명 :</td><td><input type="textarea" name="detail"></td></tr>
     </table>
+    <input type="reset" value="초기화히기">
     <input type="submit" value="저장하기">
     <input type="button" value="취소" onclick="history.back()">
 </form>

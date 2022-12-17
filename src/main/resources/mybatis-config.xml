@@ -4,7 +4,8 @@
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias alias="poketmon" type="com.poketmon.board.PoketmonVO"/>
+        <typeAlias alias="lecture" type="com.lecture.board.LectureVO"/>
+        <typeAlias alias="credit" type="com.lecture.board.CreditVO"/>
         <typeAlias alias="user" type="com.user.UserVO"/>
     </typeAliases>
 

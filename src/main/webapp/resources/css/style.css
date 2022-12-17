@@ -2,7 +2,11 @@
     width:100px;
     height:100px;
 }
-
+.button{
+    padding: 4px 12px;
+    background: #006bb3;
+    color: #dddddd;
+}
 #list {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;

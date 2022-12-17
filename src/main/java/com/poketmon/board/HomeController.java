@@ -1,5 +1,8 @@
 package com.poketmon.board;
 
+import com.lecture.board.CreditDAO;
+import com.lecture.board.LectureDAO;
+import com.lecture.board.LectureVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,36 +10,40 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class HomeController {
     @Autowired
-    private PoketmonDAO poketmonDAO;
+    private LectureDAO lectureDAO;
+    @Autowired
+    private CreditDAO creditDAO;
 
     @RequestMapping("/")
     public String gohome(Model model){
-        model.addAttribute("list", poketmonDAO.getPoketmonList());
+        model.addAttribute("list", lectureDAO.getLectureList());
+        model.addAttribute("credit", creditDAO.getMajorCredit());
+
         return "redirect:home";
     }
     @RequestMapping("home")
     public String poketmonList(Model model){
-        model.addAttribute("list", poketmonDAO.getPoketmonList());
-
+        model.addAttribute("list", lectureDAO.getLectureList());
+        model.addAttribute("credit", creditDAO.getMajorCredit());
         return "board/list";
     }
 
-    @RequestMapping("editform/{pid}")
-    public String poketmon(Model model, @PathVariable("pid") int pid){
-        model.addAttribute("editform", poketmonDAO.getPoketmon(pid));
+    @RequestMapping("editform/{seq}")
+    public String poketmon(Model model, @PathVariable("seq") int seq){
+        model.addAttribute("editform", lectureDAO.getLecture(seq));
         return "board/editform";
     }
 
-    @RequestMapping("post/{pid}")
-    public String post(Model model, @PathVariable("pid") int pid){
-        model.addAttribute("post", poketmonDAO.getPoketmon(pid));
-
+    @RequestMapping("post/{seq}")
+    public String post(Model model, @PathVariable("seq") int seq){
+        model.addAttribute("post", lectureDAO.getLecture(seq));
         return "board/post";
     }
 
@@ -45,9 +52,9 @@ public class HomeController {
         return "board/addform";
     }
 
-    @RequestMapping(value = "/deleteok/{pid}", method = RequestMethod.GET)
-    public String deletePoketmon(@PathVariable("pid") int id){
-        int i = poketmonDAO.deletePoketmon(id);
+    @RequestMapping(value = "/deleteok/{seq}", method = RequestMethod.GET)
+    public String deletePoketmon(@PathVariable("seq") int seq){
+        int i = lectureDAO.deleteLecture(seq);
         if(i == 0){
             System.out.println("데이터 삭제 실패");
         }
@@ -57,8 +64,8 @@ public class HomeController {
         return "redirect:../home";
     }
     @RequestMapping( value = "/editok", method = RequestMethod.GET)
-    public String editPostOK(PoketmonVO vo){
-        int i = poketmonDAO.updatePoketmon(vo);
+    public String editPostOK(LectureVO vo){
+        int i = lectureDAO.updateLecture(vo);
         if(i == 0)
             System.out.println("데이터 수정 실패");
         else{
@@ -67,14 +74,19 @@ public class HomeController {
         return "redirect:home";
     }
     @RequestMapping(value = "/addok", method = RequestMethod.GET)
-    public String addPoskOK(PoketmonVO vo){
-        int i = poketmonDAO.insertPoketmon(vo);
+    public String addPoskOK(LectureVO vo){
+        int i = lectureDAO.insertLecture(vo);
         if(i == 0)
             System.out.println("데이터 추가 실패");
         else{
             System.out.println("데이터 추가 성공");
         }
         return "redirect:home";
+    }
+    @RequestMapping(value = "/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/login/login";
     }
 
 }

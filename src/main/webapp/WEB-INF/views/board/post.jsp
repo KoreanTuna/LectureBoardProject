@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        PoketmonPost
+        Lecture Detail information
     </title>
     <style>
     </style>
@@ -15,16 +15,16 @@
 <body>
 <%--(pnumber, pname, type, spcial, pclass, catch_rate,height,weight,familiar, detail) values (?,?,?,?,?,?,?,?,?,?)";--%>
 
-<h1 id="post_title">${post.pname}</h1>
+<h1 id="post_title">${post.name}</h1>
 <table id="post">
-    <tr><td class="title">포켓몬번호</td><td>${post.pnumber}</td></tr>
-    <tr><td  class="title">포켓몬타입</td><td>${post.type}</td></tr>
-    <tr><td  class="title">포켓몬특성</td><td>${post.spcial}</td></tr>
-    <tr><td  class="title">포획률</td><td>${post.catch_rate}</td></tr>
-    <tr><td  class="title">키</td><td>${post.height}</td></tr>
-    <tr><td  class="title">몸무게</td><td>${post.weight}</td></tr>
-    <tr><td  class="title">친밀도</td><td>${post.familiar}</td></tr>
-    <tr><td  class="title">도감정보</td><td>${post.detail}</td></tr>
+    <tr><td class="title">강의명</td><td>${post.name}</td></tr>
+    <tr><td  class="title">학점</td><td>${post.credit}</td></tr>
+    <tr><td  class="title">영어학점</td><td>${post.englishCredit}</td></tr>
+    <tr><td  class="title">전공유무</td><td>${post.major}</td></tr>
+    <tr><td  class="title">강의시간</td><td>${post.time}</td></tr>
+    <tr><td  class="title">교수명</td><td>${post.professor}</td></tr>
+    <tr><td  class="title">선수과목</td><td>${post.pre}</td></tr>
+    <tr><td  class="title">강의정보</td><td>${post.detail}</td></tr>
 </table>
 </body>
 </html>

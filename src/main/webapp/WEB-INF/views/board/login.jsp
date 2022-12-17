@@ -11,8 +11,8 @@
     <div style="width: 100%; text-align: center; padding-top: 100px">
         <img src="${path}/resources/img/dog.JPG" style="padding-bottom: 48px">
         <form method="post", action="loginOK">
-            <div><label>UserID :</label><input type="text" name="userid"></div>
-            <div><label>Password :</label><input type="password" name="password"></div>
+            <div style="display: inline-block"><label>UserID :</label><input type="text" name="userid"></div>
+            <div style="display: inline-block"><label>Password :</label><input type="password" name="password"></div>
             <button type="submit">로그인</button>
         </form>
     </div>
